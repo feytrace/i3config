@@ -25,13 +25,14 @@ exec --no-startup-id dex --autostart --environment i3
 
 # thematically
 exec --no-startup-id picom &
-exec --no-startup-id feh --bg-scale ~/.config/i3/amazingWaiting.jpg
+exec --no-startup-id feh --bg-scale ~/.config/i3/invertAmazingWaiting.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id gamescope -w 1920 -h 1080 --backend auto
 
 # user shortcuts
 bindsym $mod+w exec librewolf &
-bindsym $mod+s exec steam &
+bindsym $mod+p exec "~/.config/i3/scripts/screenshot.sh"
+bindsym $mod+Shift+p exec ~/.config/i3/scripts/screenshot.sh -s 
 
 # rofi launcher from adi1090x
 bindsym $mod+d exec "/home/storm/.config/rofi/script/launcher.sh"

@@ -1,10 +1,14 @@
-theme = "onedark"
+theme = "glitch"
 
 # --- Editor Settings ---
 [editor]
-line-number = "relative" # Show relative line numbers (e.g., 1, 2, 3... and then -1, -2, -3 for lines above/below cursor)
+line-number = "absolute" # Show relative line numbers (e.g., 1, 2, 3... and then -1, -2, -3 for lines above/below cursor)
 auto-pairs = false        # Automatically close brackets, quotes (e.g., typing '(' inserts '()')
 completion-trigger-len = 8 # Start showing completions after 1 character is typed
+continue-comments = true
+auto-completion = false
+auto-format = true
+auto-info = false
 
 # Optional: Uncomment these lines if you want these features
 # cursorline = true      # Highlight the current line
@@ -12,8 +16,14 @@ completion-trigger-len = 8 # Start showing completions after 1 character is type
 
 [editor.cursor-shape]
 insert = "bar"     # Cursor shape in insert mode
-normal = "block"   # Cursor shape in normal mode
+normal = "bar"   # Cursor shape in normal mode
 select = "underline" # Cursor shape in select mode
 
-[editor.file-picker]
-hidden = false # Show hidden files (dotfiles) in the file picker (Ctrl+P)
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+max-indent-retain = 0
+wrap-indicator = ""
+
+[editor.smart-tab]
+enable = false
