@@ -1,0 +1,20 @@
+# languages.toml for Helix Rust Development
+# For Helix 0.9.0+ (your version 25.01.1)
+
+# This section defines the 'rust' language and its associated language servers.
+[[language]]
+name = "rust"
+# Link the 'rust-analyzer' language server defined below to the 'rust' language.
+language-servers = ["rust-analyzer"]
+# Enable auto-formatting for Rust files.
+auto-format = true
+
+# This section defines the 'rust-analyzer' language server itself.
+# Helix will look for an executable named 'rust-analyzer' in your system's PATH.
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+# Optional arguments for rust-analyzer.
+# --json: Use JSON-RPC for communication.
+# --log-file: (Optional) Path to a log file for rust-analyzer's output, useful for debugging.
+args = ["--json", "--log-file", "/tmp/rust-analyzer.log"]
+

@@ -1,0 +1,19 @@
+theme = "onedark"
+
+# --- Editor Settings ---
+[editor]
+line-number = "relative" # Show relative line numbers (e.g., 1, 2, 3... and then -1, -2, -3 for lines above/below cursor)
+auto-pairs = false        # Automatically close brackets, quotes (e.g., typing '(' inserts '()')
+completion-trigger-len = 8 # Start showing completions after 1 character is typed
+
+# Optional: Uncomment these lines if you want these features
+# cursorline = true      # Highlight the current line
+# auto-save = true       # Automatically save files after changes
+
+[editor.cursor-shape]
+insert = "bar"     # Cursor shape in insert mode
+normal = "block"   # Cursor shape in normal mode
+select = "underline" # Cursor shape in select mode
+
+[editor.file-picker]
+hidden = false # Show hidden files (dotfiles) in the file picker (Ctrl+P)
