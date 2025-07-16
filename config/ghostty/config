@@ -1,4 +1,5 @@
 window-decoration = "false"
+confirm-close-surface = false
 background-opacity = 0.60
 background-blur = 5
 
