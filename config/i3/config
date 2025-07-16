@@ -25,17 +25,20 @@ exec --no-startup-id dex --autostart --environment i3
 
 # thematically
 exec --no-startup-id picom &
-exec --no-startup-id feh --bg-scale ~/.config/i3/invertAmazingWaiting.jpg
+exec --no-startup-id feh --bg-scale $HOME/.config/i3/invertAmazingWaiting.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id gamescope -w 1920 -h 1080 --backend auto
+exec --no-startup-id unclutter -idle 1 &
 
 # user shortcuts
 bindsym $mod+w exec librewolf &
-bindsym $mod+p exec "~/.config/i3/scripts/screenshot.sh"
-bindsym $mod+Shift+p exec ~/.config/i3/scripts/screenshot.sh -s 
+
+bindsym $mod+p exec $HOME/.config/i3/scripts/screenshot.sh
+bindsym $mod+Shift+p exec $HOME/.config/i3/scripts/screenshot.sh -s
+bindsym $mod+Shift+Return exec $HOME/.config/i3/scripts/cwd.sh
 
 # rofi launcher from adi1090x
-bindsym $mod+d exec "/home/storm/.config/rofi/script/launcher.sh"
+bindsym $mod+d exec $HOME/.config/rofi/script/launcher.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -113,3 +116,7 @@ bindsym $mod+Shift+r restart
 
 new_window pixel 0
 for_window [class=".*"] border pixel 0
+
+# window rules for the weird transparent window from oracle
+# no clue why this window happens but I just send it to scratchpad
+for_window [class="VirtualBoxVM" title="VirtualBoxVM"] move to scratchpad
