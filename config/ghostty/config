@@ -1,7 +1,8 @@
 window-decoration = "false"
 confirm-close-surface = false
-background-opacity = 0.60
-background-blur = 5
+background-opacity = 0.70
+background-blur = 60
+background = #000000
 
 window-padding-x = 0
 window-padding-y = 0

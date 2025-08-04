@@ -1,4 +1,4 @@
-theme = "glitch"
+theme = "onedark"
 
 # --- Editor Settings ---
 [editor]
@@ -16,7 +16,7 @@ auto-info = false
 
 [editor.cursor-shape]
 insert = "bar"     # Cursor shape in insert mode
-normal = "bar"   # Cursor shape in normal mode
+normal = "underline"   # Cursor shape in normal mode
 select = "underline" # Cursor shape in select mode
 
 [editor.soft-wrap]
