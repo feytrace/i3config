@@ -21,6 +21,10 @@ bindsym $mod+p exec $HOME/.config/i3/scripts/screenshot.sh
 bindsym $mod+Shift+p exec $HOME/.config/i3/scripts/screenshot.sh -s
 bindsym $mod+Shift+Return exec $HOME/.config/i3/scripts/cwd.sh
 
+# Color invert for a specific window by Joedang100 on Reddit
+
+bindsym $mod+i exec --no-startup-id $HOME/.config/i3/scripts/tabcolorinvert.sh
+
 # rofi launcher from adi1090x
 bindsym $mod+d exec $HOME/.config/rofi/script/launcher.sh
 
@@ -112,3 +116,13 @@ for_window [class=".*"] border pixel 0
 # no clue why this window happens but I just send it to scratchpad
 for_window [class="VirtualBoxVM" title="VirtualBoxVM"] move to scratchpad
 for_window [title="Sign in to Steam"] move to scratchpad
+
+for_window [class="libreof*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="KiCad"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="org.gnome*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="pavucontrol"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="Blueman*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="burp*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="octave*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="qBittorrent"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
+for_window [class="Wireshark"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
