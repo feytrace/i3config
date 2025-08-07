@@ -14,4 +14,4 @@ fi
 
 [ -z "$cwd" ] && cwd="$HOME"
 
-ghostty --working-directory="$cwd"
+kitty -d="$cwd"

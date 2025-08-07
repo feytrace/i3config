@@ -31,9 +31,9 @@ bindsym $mod+d exec $HOME/.config/rofi/script/launcher.sh
 bindsym $mod+Right exec i3-msg split h && $HOME/.config/rofi/script/launcher.sh
 bindsym $mod+Down exec i3-msg split v && $HOME/.config/rofi/script/launcher.sh
 
-# directional ghostty
-bindsym $mod+Shift+Right exec i3-msg split h && exec ghostty
-bindsym $mod+Shift+Down exec i3-msg split v && exec ghostty
+# directional kitty
+bindsym $mod+Shift+Right exec i3-msg split h && exec kitty
+bindsym $mod+Shift+Down exec i3-msg split v && exec kitty
 bindsym $mod+Shift+Left exec i3-msg kill 
 bindsym $mod+Shift+Up exec i3-msg kill
 
@@ -50,7 +50,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -115,7 +115,6 @@ for_window [class=".*"] border pixel 0
 # window rules for the weird transparent window from oracle
 # no clue why this window happens but I just send it to scratchpad
 for_window [class="VirtualBoxVM" title="VirtualBoxVM"] move to scratchpad
-for_window [title="Sign in to Steam"] move to scratchpad
 
 for_window [class="libreof*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
 for_window [class="KiCad"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
