@@ -2,10 +2,14 @@
 
 set $mod Mod4
 set $mod2 Mod1
+set $mod3 mod3
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
+
+# math implementations
+bindsym $mod+{a,s,d,f} exec xdotool type {"∀","∞","Ǝ","⇒"}
 
 # thematically
 exec --no-startup-id picom &
