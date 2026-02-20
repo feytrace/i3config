@@ -1,0 +1,10 @@
+exec --no-startup-id dex --autostart --environment i3
+
+exec --no-startup-id i3-layers & 
+exec --no-startup-id xset s off -dpms
+
+exec --no-startup-id picom &
+exec --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper.jpg
+exec --no-startup-id unclutter -idle 1 &
+
+exec --no-startup-id xclip &

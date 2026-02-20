@@ -1,131 +1,51 @@
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+set $mod Mod1
 
-set $mod Mod4
-set $mod2 Mod1
-set $mod3 mod3
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-# math implementations
-bindsym $mod+{a,s,d,f} exec xdotool type {"∀","∞","Ǝ","⇒"}
-
-# thematically
-exec --no-startup-id picom &
-exec --no-startup-id feh --bg-scale $HOME/.config/i3/invertAmazingWaiting.jpg
-exec --no-startup-id nm-applet
-exec --no-startup-id gamescope -w 1920 -h 1080 --backend auto
-exec --no-startup-id unclutter -idle 1 &
-
-# user shortcuts
-bindsym $mod+w exec librewolf &
+include ~/.config/i3/autostart
 
 bindsym $mod+p exec $HOME/.config/i3/scripts/screenshot.sh
 bindsym $mod+Shift+p exec $HOME/.config/i3/scripts/screenshot.sh -s
 bindsym $mod+Shift+Return exec $HOME/.config/i3/scripts/cwd.sh
 
-# Color invert for a specific window by Joedang100 on Reddit
-
-bindsym $mod+i exec --no-startup-id $HOME/.config/i3/scripts/tabcolorinvert.sh
-
-# rofi launcher from adi1090x
-bindsym $mod+d exec $HOME/.config/rofi/script/launcher.sh
-
-bindsym $mod+Right exec i3-msg split h && $HOME/.config/rofi/script/launcher.sh
-bindsym $mod+Down exec i3-msg split v && $HOME/.config/rofi/script/launcher.sh
-
-# directional kitty
-bindsym $mod+Shift+Right exec i3-msg split h && exec kitty
-bindsym $mod+Shift+Down exec i3-msg split v && exec kitty
-bindsym $mod+Shift+Left exec i3-msg kill 
-bindsym $mod+Shift+Up exec i3-msg kill
-
-# bindsym $mod2+Down exec $HOME/.config/rofi/script/applaunch.sh
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+q exec kitty 
+bindsym $mod+w exec "rofi -show drun -theme gruvbox-like"
+bindsym $mod+e exec waterfox
 
-# kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+c kill
 
-# alternatively, you can use the cursor keys:
-bindsym $mod2+Left focus left
-bindsym $mod2+Down focus down
-bindsym $mod2+Up focus up
-bindsym $mod2+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod2+Shift+Left move left
-bindsym $mod2+Shift+Down move down
-bindsym $mod2+Shift+Up move up
-bindsym $mod2+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
-bindsym $mod2+h split h
+bindsym $mod+f fullscreen toggle
 
-# split in vertical orientation
-bindsym $mod2+v split v
+bindsym $mod+Shift+space floating toggle
 
-# enter fullscreen mode for the focused container
-bindsym $mod2+f fullscreen toggle
+bindsym $mod+space focus mode_toggle
 
-# toggle tiling / floating
-bindsym $mod2+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod2+space focus mode_toggle
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 
-# switch to workspace
-bindsym $mod2+1 workspace number $ws1
-bindsym $mod2+2 workspace number $ws2
-bindsym $mod2+3 workspace number $ws3
-bindsym $mod2+4 workspace number $ws4
-bindsym $mod2+5 workspace number $ws5
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
 
-# move focused container to workspace
-bindsym $mod2+Shift+1 move container to workspace number $ws1
-bindsym $mod2+Shift+2 move container to workspace number $ws2
-bindsym $mod2+Shift+3 move container to workspace number $ws3
-bindsym $mod2+Shift+4 move container to workspace number $ws4
-bindsym $mod2+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-new_window pixel 0
 for_window [class=".*"] border pixel 0
-
-# window rules for the weird transparent window from oracle
-# no clue why this window happens but I just send it to scratchpad
-for_window [class="VirtualBoxVM" title="VirtualBoxVM"] move to scratchpad
-
-for_window [class="libreof*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="KiCad"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="org.gnome*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="pavucontrol"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="Blueman*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="burp*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="octave*"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="qBittorrent"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
-for_window [class="Wireshark"] exec $HOME/.config/i3/scripts/tabcolorinvert.sh
