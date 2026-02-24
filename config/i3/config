@@ -8,9 +8,16 @@ bindsym $mod+Shift+Return exec $HOME/.config/i3/scripts/cwd.sh
 
 floating_modifier $mod
 
-bindsym $mod+q exec kitty 
+bindsym $mod+q exec kitty
+bindsym $mod+Shift+q exec kitty tmux
+bindsym $mod+i exec kitty btop
+
+bindsym $mod+o exec obsidian
+
 bindsym $mod+w exec "rofi -show drun -theme gruvbox-like"
-bindsym $mod+e exec waterfox
+bindsym $mod+r exec "rofi -show run -theme gruvbox-like"
+
+bindsym $mod+b exec waterfox
 
 bindsym $mod+c kill
 
